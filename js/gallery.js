@@ -71,11 +71,11 @@ function createGalleryMarkup(images) {
     .map(
       (image) => `
     <li class="gallery-item">
-          <a class="gallery-link" href="${image.large}">
+          <a class="gallery-link" href="${image.original}">
             <img
               class="gallery-image"
-              src="${image.small}"
-              data-source="${image.large}"
+              src="${image.preview}"
+              data-source="${image.original}"
               alt="${image.description}"
             />
           </a>
@@ -84,3 +84,15 @@ function createGalleryMarkup(images) {
     )
     .join("");
 }
+
+gallery.insertAdjacentHTML("beforeend", createGalleryMarkup(images));
+
+gallery.addEventListener("click", (event) => {
+  event.preventDefault();
+  if (event.currentTarget === event.target) {
+    return;
+  }
+  const target = event.target;
+
+  console.log(target);
+});
