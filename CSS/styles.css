@@ -52,3 +52,8 @@ img {
   height: 200px;
   overflow: hidden;
 }
+
+.modal {
+  width: 1112px;
+  height: 640px;
+}

@@ -92,7 +92,18 @@ gallery.addEventListener("click", (event) => {
   if (event.currentTarget === event.target) {
     return;
   }
+
   const target = event.target;
 
-  console.log(target);
+  if (target.classList.contains("gallery-image")) {
+    const largeImageURL = target.dataset.source;
+    console.log(`Натиснуто на зображення з великим URL: ${largeImageURL}`);
+
+    const instance = basicLightbox.create(`
+	<div class="modal">
+  <img src="${largeImageURL}">
+  </div>
+`);
+    instance.show();
+  }
 });
