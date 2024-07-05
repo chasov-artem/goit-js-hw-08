@@ -97,13 +97,10 @@ gallery.addEventListener("click", (event) => {
 
   if (target.classList.contains("gallery-image")) {
     const largeImageURL = target.dataset.source;
-    console.log(`Натиснуто на зображення з великим URL: ${largeImageURL}`);
 
-    const instance = basicLightbox.create(`
-	<div class="modal">
-  <img src="${largeImageURL}">
-  </div>
-`);
+    const modalContent = `<img src="${target.dataset.source}" alt="${target.alt}"/>`;
+    const instance = basicLightbox.create(modalContent);
+
     instance.show();
   }
 });
